@@ -1,0 +1,37 @@
+======================================
+Gilded Rose Requirements Specification
+======================================
+
+The Gilded Rose is an item shop that sells only the finest goods. To maintain their high standards,
+their management uses a custom inventory system that keeps track of the quality and expiration date of
+all stocked items. Like many custom software systems, The Gilded Rose's software system was designed
+by a single contractor who has long since moved on, and over time the system has grown complex and
+hard to maintain. You've been tasked with feature development and maintenance of this system.
+
+Items in The Gilded Rose's inventory share these common characteristics:
+	- A SellIn value which denotes the number of days before the item expires
+	- A Quality value which denotes how valuable the item is (an item with 0 Quality is worthless)
+	- At the end of each day our system adjusts both the Quality and SellIn value of each item to
+	  reflect the effect of time on their value.
+
+The adjustments to an item's Quality and SellIn value follow these rules:
+	- The SellIn value decreases by one every day and can be negative if an item is expired
+	- A normal, unexpired item's Quality decreases by one each day
+	- Once the SellIn value of an item dips below zero (indicating the item is past its expiry date),
+	  its Quality degrades twice as fast
+	- The Quality of an item can never be negative or more than 50
+	- "Fine Wine" actually increases in Quality the older it gets
+	- The "Backstage Pass" also increases in Quality as the SellIn date approaches 0, but it becomes
+	  valuable more quickly as the concert date approaches. Its Quality increases by 2 when the
+	  SellIn date is 10 days or less and by 3 when its SellIn value is 5 days or less. However, it
+	  is useless when it is expired, so its quality drops to 0 when its SellIn date is negative.
+	- The "Renaissance Painting" is timeless; it never has to be sold, nor does it decrease in Quality.
+	  Because of its great rarity, its Quality is fixed at 80.
+
+The Gilded Rose recently started selling perisable items like "Fresh Spinach". Perisable items degrade in
+quality twice as fast as normal items. The Gilded Rose's management requires an update to their system to
+support this new type of item.
+
+Feel free to make any changes to the UpdateQuality method and add any new code as long as everything
+still works correctly. However, do not alter the Item class or Items property or you'll hurt the feelings
+of the original developer and they won't accept your pull request.
