@@ -18,7 +18,6 @@
     items.push(new Item('Fine Wine', 2, 0));
     items.push(new Item('Tonic Water', 5, 7));
     items.push(new Item('Renaissance Painting', 0, 80));
-    items.push(new Item('Renaissance Painting', -1, 80));
     items.push(new Item('Backstage Pass', 15, 20));
     items.push(new Item('Backstage Pass', 10, 49));
     items.push(new Item('Backstage Pass', 5, 49));
@@ -27,7 +26,7 @@
 
     gildedRose = new Shop(items);
 
-    var days = 2;
+    var days = 5;
 
     for (var i = 0; i < days; i++) {
       showHeaderFor(i);
