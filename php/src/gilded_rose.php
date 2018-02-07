@@ -10,16 +10,16 @@ class GildedRose {
 
     function update_quality() {
         foreach ($this->items as $item) {
-            if ($item->name != 'Aged Brie' and $item->name != 'Backstage passes to a TAFKAL80ETC concert') {
+            if ($item->name != 'Fine Wine' and $item->name != 'Backstage Pass') {
                 if ($item->quality > 0) {
-                    if ($item->name != 'Sulfuras, Hand of Ragnaros') {
+                    if ($item->name != 'Renaissance Painting') {
                         $item->quality = $item->quality - 1;
                     }
                 }
             } else {
                 if ($item->quality < 50) {
                     $item->quality = $item->quality + 1;
-                    if ($item->name == 'Backstage passes to a TAFKAL80ETC concert') {
+                    if ($item->name == 'Backstage Pass') {
                         if ($item->sell_in < 11) {
                             if ($item->quality < 50) {
                                 $item->quality = $item->quality + 1;
@@ -34,15 +34,15 @@ class GildedRose {
                 }
             }
             
-            if ($item->name != 'Sulfuras, Hand of Ragnaros') {
+            if ($item->name != 'Renaissance Painting') {
                 $item->sell_in = $item->sell_in - 1;
             }
             
             if ($item->sell_in < 0) {
-                if ($item->name != 'Aged Brie') {
-                    if ($item->name != 'Backstage passes to a TAFKAL80ETC concert') {
+                if ($item->name != 'Fine Wine') {
+                    if ($item->name != 'Backstage Pass') {
                         if ($item->quality > 0) {
-                            if ($item->name != 'Sulfuras, Hand of Ragnaros') {
+                            if ($item->name != 'Renaissance Painting') {
                                 $item->quality = $item->quality - 1;
                             }
                         }
